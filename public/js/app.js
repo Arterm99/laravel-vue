@@ -5383,29 +5383,65 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "PostComponent",
   // Вызываем функцию (она по умолчанию скрыта для удобства)
   data: function data() {
     return {
-      name: 'Вася',
-      age: 20
+      persons: [{
+        id: 1,
+        name: 'Vasya',
+        age: 20,
+        job: 'coach'
+      }, {
+        id: 2,
+        name: 'Elena',
+        age: 17,
+        job: 'rest'
+      }, {
+        id: 3,
+        name: 'Petr',
+        age: 34,
+        job: 'seller'
+      }, {
+        id: 4,
+        name: 'Ksusha',
+        age: 25,
+        job: 'traveler'
+      }, {
+        id: 5,
+        name: 'Olya',
+        age: 21,
+        job: 'Teacher'
+      }]
     };
   },
   // Вызываем методы
-  methods: {
-    sayHello: function sayHello() {
-      console.log('hello');
-    },
-    sayHi: function sayHi() {
-      console.log('Hi');
-    }
-  },
+  methods: {},
   // Вызываем вычисляемые свойства
+  // Вызываем метод filter(), который так же преобразует масив как v-for и v-if
   computed: {
-    vasyaJob: function vasyaJob() {
-      return this.name + ' работает в булочной';
+    personsAgeMoreTwenty: function personsAgeMoreTwenty() {
+      return this.persons.filter(function (person) {
+        return person.age > 20;
+      });
+    },
+    personsAgeLessTwenty: function personsAgeLessTwenty() {
+      return this.persons.filter(function (person) {
+        return person.age < 20;
+      });
     }
   },
   // Вызываем экспортера
@@ -28113,18 +28149,49 @@ var render = function () {
     [
       _c("SinglePostComponent"),
       _vm._v(" "),
-      _c("div", [_vm._v("\n        Name: " + _vm._s(_vm.name) + "\n    ")]),
-      _vm._v(" "),
-      _c("div", [_vm._v("Job: " + _vm._s(_vm.vasyaJob))]),
-      _vm._v(" "),
-      _c("button", { on: { click: _vm.sayHello } }, [_vm._v("Hello")]),
-      _vm._v(" "),
-      _c("button", { on: { click: _vm.sayHi } }, [_vm._v("Hi")]),
+      _c("table", { staticClass: "table" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c(
+          "tbody",
+          _vm._l(_vm.personsAgeMoreTwenty, function (person) {
+            return _c("tr", [
+              _c("th", { attrs: { scope: "row" } }, [
+                _vm._v(_vm._s(person.id)),
+              ]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(person.name))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(person.age))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(person.job))]),
+            ])
+          }),
+          0
+        ),
+      ]),
     ],
     1
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("#")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Name")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Age")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Job")]),
+      ]),
+    ])
+  },
+]
 render._withStripped = true
 
 
