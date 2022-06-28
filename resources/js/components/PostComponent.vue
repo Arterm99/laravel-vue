@@ -1,95 +1,77 @@
 <template>
     <div>
+        <CreateComponent></CreateComponent>
         <SinglePostComponent></SinglePostComponent>
-        <table class="table">
-            <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Name</th>
-                <th scope="col">Age</th>
-                <th scope="col">Job</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr v-for="person in personsAgeMoreTwenty">
-                <th scope="row">{{ person.id}}</th>
-                <td>{{ person.name}}</td>
-                <td>{{ person.age}}</td>
-                <td>{{ person.job}}</td>
-            </tr>
-            </tbody>
-        </table>
+        <IndexComponent></IndexComponent>
+<!--        <table class="table">-->
+<!--            <thead>-->
+<!--            <tr>-->
+<!--                <th scope="col">#</th>-->
+<!--                <th scope="col">Name</th>-->
+<!--                <th scope="col">Age</th>-->
+<!--                <th scope="col">Job</th>-->
+<!--            </tr>-->
+<!--            </thead>-->
+<!--            <tbody>-->
+<!--            <tr v-for="person in persons">-->
+<!--                <th scope="row">{{ person.id}}</th>-->
+<!--                <td>{{ person.name}}</td>-->
+<!--                <td>{{ person.age}}</td>-->
+<!--                <td>{{ person.job}}</td>-->
+<!--            </tr>-->
+<!--            </tbody>-->
+<!--        </table>-->
     </div>
-
 </template>
 
 <script>
 import SinglePostComponent from "./SinglePostComponent";
+import CreateComponent from "./CreateComponent";
+import IndexComponent from "./IndexComponent";
 export default {
     name: "PostComponent",
 
     // Вызываем функцию (она по умолчанию скрыта для удобства)
     data() {
         return  {
-            persons: [
-                {
-                    id: 1,
-                    name: 'Vasya',
-                    age: 20,
-                    job: 'coach',
-                },
-                {
-                    id: 2,
-                    name: 'Elena',
-                    age: 17,
-                    job: 'rest',
-                },
-                {
-                    id: 3,
-                    name: 'Petr',
-                    age: 34,
-                    job: 'seller',
-                },
-                {
-                    id: 4,
-                    name: 'Ksusha',
-                    age: 25,
-                    job: 'traveler',
-                },
-                {
-                    id: 5,
-                    name: 'Olya',
-                    age: 21,
-                    job: 'Teacher',
-                }
-            ]
-
+            persons: null,
         }
     },
 
-    // Вызываем методы
-    methods: {
+    // Зарезервированный метод жизненого цикла компонента для запуска methods
+    mounted () {
+        // this.getPersons()
+    },
 
+    // Вызываем метод axios
+    // У него есть методы catch - работа с ошибками, then() - когда все успешно, finally - если мы хотим, что бы все сработало в любом случае
+    // "=>" позволяет произвести доступ к переменной | data - то, что придет с backend
+    methods: {
+        // getPersons() {
+        //     axios.get('/persons')
+        //     .then ( res => {
+        //         this.persons = res.data
+        //     })
+        //     .catch (error => {
+        //
+        //     })
+        //     .finally ({
+        //
+        //     })
+        // }
     },
 
     // Вызываем вычисляемые свойства
     // Вызываем метод filter(), который так же преобразует масив как v-for и v-if
     computed: {
-        personsAgeMoreTwenty() {
-            return this.persons.filter(function (person) {
-                return person.age > 20
-            })
-        },
-        personsAgeLessTwenty() {
-            return this.persons.filter(function (person) {
-                return person.age < 20
-            })
-        }
+
     },
 
     // Вызываем экспортера
     components: {
         SinglePostComponent,
+        CreateComponent,
+        IndexComponent,
     }
 }
 </script>

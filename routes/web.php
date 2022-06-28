@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PersonController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,4 +23,4 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/psots', [PostController::class, 'index'])->name('post');
+Route::get('/persons', [PersonController::class, '__invoke']);

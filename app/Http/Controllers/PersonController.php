@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class PostController extends Controller
+class PersonController extends Controller
 {
     public function __invoke()
     {
