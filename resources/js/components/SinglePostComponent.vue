@@ -1,12 +1,24 @@
 <template>
     <div>
-        Single Component
+        Single Component + {{ name }}
     </div>
 </template>
 
 <script>
 export default {
-    name: "SinglePostComponent"
+    name: "SinglePostComponent",
+
+    data() {
+        return {
+            name: 'Alisa',
+        }
+    },
+
+    methods: {
+        Test() {
+            console.log('Test string');
+        }
+    }
 }
 </script>
 

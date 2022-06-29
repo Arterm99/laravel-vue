@@ -1,7 +1,8 @@
 <template>
     <div>
         <CreateComponent></CreateComponent>
-        <SinglePostComponent></SinglePostComponent>
+        <SinglePostComponent ref="indexxx"></SinglePostComponent>
+        <!--  ref="index" - позволяет вызывать методы из дочерних классов -->
         <IndexComponent></IndexComponent>
 <!--        <table class="table">-->
 <!--            <thead>-->
@@ -40,29 +41,17 @@ export default {
 
     // Зарезервированный метод жизненого цикла компонента для запуска methods
     mounted () {
-        // this.getPersons()
+        // Тесе
+        this.$refs.indexxx.Test();
     },
 
     // Вызываем метод axios
     // У него есть методы catch - работа с ошибками, then() - когда все успешно, finally - если мы хотим, что бы все сработало в любом случае
     // "=>" позволяет произвести доступ к переменной | data - то, что придет с backend
     methods: {
-        // getPersons() {
-        //     axios.get('/persons')
-        //     .then ( res => {
-        //         this.persons = res.data
-        //     })
-        //     .catch (error => {
-        //
-        //     })
-        //     .finally ({
-        //
-        //     })
-        // }
     },
 
     // Вызываем вычисляемые свойства
-    // Вызываем метод filter(), который так же преобразует масив как v-for и v-if
     computed: {
 
     },
