@@ -3,7 +3,7 @@
         <CreateComponent></CreateComponent>
         <SinglePostComponent ref="indexxx"></SinglePostComponent>
         <!--  ref="index" - позволяет вызывать методы из дочерних классов -->
-        <IndexComponent></IndexComponent>
+        <IndexComponent ref="index"></IndexComponent>
 <!--        <table class="table">-->
 <!--            <thead>-->
 <!--            <tr>-->
@@ -41,7 +41,7 @@ export default {
 
     // Зарезервированный метод жизненого цикла компонента для запуска methods
     mounted () {
-        // Тесе
+        // Тест
         this.$refs.indexxx.Test();
     },
 
